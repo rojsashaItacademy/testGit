@@ -8,11 +8,12 @@ import org.koin.core.module.Module
 import org.koin.dsl.module
 import ru.trinitydigital.pagingcashe.data.db.PagingCasheAppDatabase
 import ru.trinitydigital.pagingcashe.data.db.PagingCasheDao
+import ru.trinitydigital.pagingcashe.data.repositories.PagingRepositories
 import ru.trinitydigital.pagingcashe.ui.main.MainViewModel
 
 
 val viewModelModule: Module = module {
-    viewModel { MainViewModel() }
+    viewModel { MainViewModel(get()) }
 }
 
 val dbModule: Module = module {
@@ -20,6 +21,7 @@ val dbModule: Module = module {
 }
 
 val repositoryModule: Module = module {
+    single { PagingRepositories(get(), get()) }
 }
 
 val apiModule: Module = module {

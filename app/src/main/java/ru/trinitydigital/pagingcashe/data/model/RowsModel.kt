@@ -5,7 +5,8 @@ import androidx.room.PrimaryKey
 
 @Entity
 data class RowsModel(
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
+    val sortId: Long,
     val id: Long,
     val name: String,
     val full_name: String,
@@ -13,5 +14,5 @@ data class RowsModel(
     val html_url: String,
     val stargazed_count: Int,
     val forks_count: Int,
-    val language: String
+    val language: String?,
 )

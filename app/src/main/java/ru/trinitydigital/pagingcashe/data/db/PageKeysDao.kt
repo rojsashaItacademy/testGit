@@ -16,5 +16,5 @@ interface PageKeysDao {
     suspend fun getKeyId(id: Long): PageKeys?
 
     @Query("DELETE FROM pagekeys")
-    fun deleteAll()
+    suspend fun deleteAll()
 }
