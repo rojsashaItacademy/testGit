@@ -1,15 +1,19 @@
 package ru.trinitydigital.pagingcashe.data.repositories
 
+import android.app.DownloadManager
 import androidx.lifecycle.LiveData
 import androidx.paging.*
+import kotlinx.coroutines.flow.Flow
 import ru.trinitydigital.pagingcashe.data.PagingMediator
 import ru.trinitydigital.pagingcashe.data.db.PagingCasheAppDatabase
 import ru.trinitydigital.pagingcashe.data.model.RowsModel
 import ru.trinitydigital.pagingcashe.data.remote.CoursesService
+import ru.trinitydigital.pagingcashe.ui.without_cashe.WithoutCachePagingSource
 
 class PagingRepositories(
     private val service: CoursesService,
-    private val db: PagingCasheAppDatabase) {
+    private val db: PagingCasheAppDatabase
+) {
 
     @ExperimentalPagingApi
     fun getPagingResult(): LiveData<PagingData<RowsModel>> {
@@ -22,7 +26,16 @@ class PagingRepositories(
         ).liveData
     }
 
+    @ExperimentalPagingApi
+    fun getPagingForSearch(query: String): Flow<PagingData<RowsModel>> {
+        return Pager(
+            config = PagingConfig(pageSize = PAGE_SIZE),
+            pagingSourceFactory = { WithoutCachePagingSource(service, query) }
+        ).flow
+    }
+
+
     companion object {
-        private const val PAGE_SIZE = 30
+        const val PAGE_SIZE = 20
     }
 }

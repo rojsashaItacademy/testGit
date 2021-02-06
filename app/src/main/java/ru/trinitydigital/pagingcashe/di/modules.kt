@@ -10,10 +10,12 @@ import ru.trinitydigital.pagingcashe.data.db.PagingCasheAppDatabase
 import ru.trinitydigital.pagingcashe.data.db.PagingCasheDao
 import ru.trinitydigital.pagingcashe.data.repositories.PagingRepositories
 import ru.trinitydigital.pagingcashe.ui.main.MainViewModel
+import ru.trinitydigital.pagingcashe.ui.without_cashe.WithoutCacheViewModel
 
 
 val viewModelModule: Module = module {
     viewModel { MainViewModel(get()) }
+    viewModel { WithoutCacheViewModel(get()) }
 }
 
 val dbModule: Module = module {
