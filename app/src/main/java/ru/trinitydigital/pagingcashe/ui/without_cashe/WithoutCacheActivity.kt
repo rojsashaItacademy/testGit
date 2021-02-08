@@ -1,25 +1,18 @@
 package ru.trinitydigital.pagingcashe.ui.without_cashe
 
-import android.content.SharedPreferences
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.MessageQueue
 import android.view.inputmethod.EditorInfo
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
-import androidx.core.widget.doAfterTextChanged
 import androidx.lifecycle.lifecycleScope
 import androidx.paging.ExperimentalPagingApi
 import androidx.paging.LoadState
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
-import org.koin.android.ext.android.bind
 import org.koin.androidx.viewmodel.ext.android.viewModel
-import ru.trinitydigital.pagingcashe.R
-import ru.trinitydigital.pagingcashe.databinding.ActivityMainBinding
 import ru.trinitydigital.pagingcashe.databinding.ActivityWithoutCacheBinding
 import ru.trinitydigital.pagingcashe.ui.main.MainAdapter
-import ru.trinitydigital.pagingcashe.ui.main.MainViewModel
 import ru.trinitydigital.pagingcashe.utils.hideKeyboard
 
 class WithoutCacheActivity : AppCompatActivity() {

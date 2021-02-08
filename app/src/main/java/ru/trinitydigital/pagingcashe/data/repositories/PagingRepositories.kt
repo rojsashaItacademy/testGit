@@ -1,6 +1,5 @@
 package ru.trinitydigital.pagingcashe.data.repositories
 
-import android.app.DownloadManager
 import androidx.lifecycle.LiveData
 import androidx.paging.*
 import kotlinx.coroutines.flow.Flow
@@ -29,7 +28,7 @@ class PagingRepositories(
     @ExperimentalPagingApi
     fun getPagingForSearch(query: String): Flow<PagingData<RowsModel>> {
         return Pager(
-            config = PagingConfig(pageSize = PAGE_SIZE),
+            config = PagingConfig(pageSize = PAGE_SIZE, enablePlaceholders = true),
             pagingSourceFactory = { WithoutCachePagingSource(service, query) }
         ).flow
     }
