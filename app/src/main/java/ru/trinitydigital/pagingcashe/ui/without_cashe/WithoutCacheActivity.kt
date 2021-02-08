@@ -35,6 +35,7 @@ class WithoutCacheActivity : AppCompatActivity() {
         Log.d("asdasdasd", "asdasdasdsad")
         Log.d("asdasdasd", "asdasdasdsad")
         Log.d("asdasdasd", "asdasdasdsad")
+        Log.d("Asdasdasdasd", "adasdasdasdadasda")
         setupRecycler()
         setupListener()
     }
@@ -48,12 +49,6 @@ class WithoutCacheActivity : AppCompatActivity() {
 
     @ExperimentalPagingApi
     private fun setupListener() {
-        Log.d("asdasdasd", "asdasdasdsad")
-        Log.d("asdasdasd", "asdasdasdsad")
-        Log.d("asdasdasd", "asdasdasdsad")
-        Log.d("asdasdasd", "asdasdasdsad")
-        Log.d("asdasdasd", "asdasdasdsad")
-        Log.d("asdasdasd", "asdasdasdsad")
         binding.etSearch.setOnEditorActionListener { _, actionId, _ ->
             if (actionId == EditorInfo.IME_ACTION_SEARCH) {
                 updateSearchRepo()
