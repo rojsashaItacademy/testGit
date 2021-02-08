@@ -1,5 +1,6 @@
 package ru.trinitydigital.pagingcashe.ui.without_cashe
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.view.isVisible
@@ -19,6 +20,7 @@ class GitHubLoadStateAdapter(private val retry: () -> Unit) :
         parent: ViewGroup,
         loadState: LoadState
     ): GitHubLoadStateViewHolder {
+        Log.d("asdasdasd", "asdasdasdsad")
         return GitHubLoadStateViewHolder.create(parent, retry)
     }
 }

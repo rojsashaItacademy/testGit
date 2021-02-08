@@ -1,5 +1,6 @@
 package ru.trinitydigital.pagingcashe.ui.without_cashe
 
+import android.util.Log
 import androidx.paging.PagingSource
 import retrofit2.HttpException
 import ru.trinitydigital.pagingcashe.data.START_PAGE
@@ -19,7 +20,11 @@ class WithoutCachePagingSource(
 
         val page = params.key ?: START_PAGE
         val apiQuery = query + PARAM_QUERY
-
+        Log.d("asdasdasd", "asdasdasdsad")
+        Log.d("asdasdasd", "asdasdasdsad")
+        Log.d("asdasdasd", "asdasdasdsad")
+        Log.d("asdasdasd", "asdasdasdsad")
+        Log.d("asdasdasd", "asdasdasdsad")
         return try {
             val response = service.getCourses(query = apiQuery, page = page, params.loadSize)
             val itemsCount = response.items.size

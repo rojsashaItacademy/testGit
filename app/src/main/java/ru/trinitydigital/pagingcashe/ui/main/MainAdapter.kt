@@ -1,5 +1,6 @@
 package ru.trinitydigital.pagingcashe.ui.main
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -24,10 +25,12 @@ class MainAdapter : PagingDataAdapter<RowsModel, MainViewHolder>(ROWSMODEL_COMPA
     companion object {
         private val ROWSMODEL_COMPARATOR = object : DiffUtil.ItemCallback<RowsModel>() {
             override fun areItemsTheSame(oldItem: RowsModel, newItem: RowsModel): Boolean {
+                Log.d("asdasdasd", "asdasdasdsad")
                 return oldItem.id == newItem.id
             }
 
             override fun areContentsTheSame(oldItem: RowsModel, newItem: RowsModel): Boolean {
+                Log.d("asdasdasd", "asdasdasdsad")
                 return oldItem == newItem
             }
         }
@@ -39,6 +42,7 @@ class MainViewHolder(view: View) : RecyclerView.ViewHolder(view) {
     private val tvTitle = view.findViewById<TextView>(R.id.tvTitle)
 
     fun bind(item: RowsModel?) {
+        Log.d("asdasdasd", "asdasdasdsad")
         tvTitle.text = item?.full_name
     }
 
