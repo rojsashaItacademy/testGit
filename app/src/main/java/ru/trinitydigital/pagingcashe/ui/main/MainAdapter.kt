@@ -1,5 +1,6 @@
 package ru.trinitydigital.pagingcashe.ui.main
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,6 +14,7 @@ import ru.trinitydigital.pagingcashe.data.model.RowsModel
 class MainAdapter : PagingDataAdapter<RowsModel, MainViewHolder>(ROWSMODEL_COMPARATOR) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainViewHolder {
+        Log.d("asdasdasd", "asdasdasdsad")
         return MainViewHolder.create(parent)
     }
 
