@@ -20,7 +20,7 @@ class WithoutCacheActivity : AppCompatActivity() {
     private lateinit var binding: ActivityWithoutCacheBinding
     private val vm by viewModel<WithoutCacheViewModel>()
     private val adapter by lazy { MainAdapter() }
-    private var searchJob: Job? = null
+    private var jobSearch: Job? = null
 
     @ExperimentalPagingApi
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -67,8 +67,8 @@ class WithoutCacheActivity : AppCompatActivity() {
 
     @ExperimentalPagingApi
     private fun search(query: String) {
-        searchJob?.cancel()
-        searchJob = lifecycleScope.launch {
+        jobSearch?.cancel()
+        jobSearch = lifecycleScope.launch {
             vm.getPagingData(query).collectLatest {
                 adapter.submitData(it)
             }
