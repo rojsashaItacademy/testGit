@@ -17,19 +17,19 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
 
     @ExperimentalPagingApi
+    private fun setupViewModel() {
+        vm.getPagingData().observe(this, {
+            adapter.submitData(lifecycle, it)
+        })
+//        adapter.submitData()
+    }
+
+    @ExperimentalPagingApi
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.recycler.adapter = adapter
         setupViewModel()
-    }
-
-    @ExperimentalPagingApi
-    private fun setupViewModel() {
-        vm.getPagingData().observe(this, {
-            adapter.submitData(lifecycle, it)
-        })
-//        adapter.submitData()
     }
 }

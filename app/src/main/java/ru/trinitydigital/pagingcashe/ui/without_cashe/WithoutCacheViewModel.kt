@@ -1,5 +1,6 @@
 package ru.trinitydigital.pagingcashe.ui.without_cashe
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.paging.ExperimentalPagingApi
@@ -12,6 +13,7 @@ class WithoutCacheViewModel(private val repo: PagingRepositories) : ViewModel() 
 
     @ExperimentalPagingApi
     fun getPagingData(query: String): Flow<PagingData<RowsModel>> {
+        Log.d("Asdasdasdasd", "adasdasdasdadasda")
         return repo.getPagingForSearch(query)
     }
 }

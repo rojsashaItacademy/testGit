@@ -12,12 +12,12 @@ import ru.trinitydigital.pagingcashe.data.model.RowsModel
 
 class MainAdapter : PagingDataAdapter<RowsModel, MainViewHolder>(ROWSMODEL_COMPARATOR) {
 
-    override fun onBindViewHolder(holder: MainViewHolder, position: Int) {
-        holder.bind(getItem(position))
-    }
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainViewHolder {
         return MainViewHolder.create(parent)
+    }
+
+    override fun onBindViewHolder(holder: MainViewHolder, position: Int) {
+        holder.bind(getItem(position))
     }
 
 
@@ -35,13 +35,6 @@ class MainAdapter : PagingDataAdapter<RowsModel, MainViewHolder>(ROWSMODEL_COMPA
 }
 
 class MainViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-
-    private val tvTitle = view.findViewById<TextView>(R.id.tvTitle)
-
-    fun bind(item: RowsModel?) {
-        tvTitle.text = item?.full_name
-    }
-
     companion object {
         fun create(parent: ViewGroup): MainViewHolder {
             val view = LayoutInflater.from(parent.context)
@@ -49,4 +42,12 @@ class MainViewHolder(view: View) : RecyclerView.ViewHolder(view) {
             return MainViewHolder(view)
         }
     }
+
+    private val tvTitle = view.findViewById<TextView>(R.id.tvTitle)
+
+    fun bind(item: RowsModel?) {
+        tvTitle.text = item?.full_name
+    }
+
+
 }

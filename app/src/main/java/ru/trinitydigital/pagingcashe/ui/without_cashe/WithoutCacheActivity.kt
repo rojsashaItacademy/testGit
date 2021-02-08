@@ -1,6 +1,7 @@
 package ru.trinitydigital.pagingcashe.ui.without_cashe
 
 import android.os.Bundle
+import android.util.Log
 import android.view.inputmethod.EditorInfo
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
@@ -27,6 +28,7 @@ class WithoutCacheActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityWithoutCacheBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        Log.d("Asdasdasdasd", "adasdasdasdadasda")
         setupRecycler()
         setupListener()
     }
