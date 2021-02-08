@@ -13,7 +13,11 @@ class WithoutCacheViewModel(private val repo: PagingRepositories) : ViewModel() 
 
     @ExperimentalPagingApi
     fun getPagingData(query: String): Flow<PagingData<RowsModel>> {
-        Log.d("Asdasdasdasd", "adasdasdasdadasda")
+        Log.d("asdasdasd", "asdasdasdsad")
+        Log.d("asdasdasd", "asdasdasdsad")
+        Log.d("asdasdasd", "asdasdasdsad")
+        Log.d("asdasdasd", "asdasdasdsad")
+        Log.d("asdasdasd", "asdasdasdsad")
         return repo.getPagingForSearch(query)
     }
 }

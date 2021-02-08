@@ -20,7 +20,7 @@ class GitHubLoadStateAdapter(private val retry: () -> Unit) :
         parent: ViewGroup,
         loadState: LoadState
     ): GitHubLoadStateViewHolder {
-        Log.d("Asdasdasdasd", "adasdasdasdadasda")
+        Log.d("asdasdasd", "asdasdasdsad")
         return GitHubLoadStateViewHolder.create(parent, retry)
     }
 }

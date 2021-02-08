@@ -21,6 +21,11 @@ class WithoutCachePagingSource(
         val page = params.key ?: START_PAGE
         val apiQuery = query + PARAM_QUERY
         Log.d("Asdasdasdasd", "adasdasdasdadasda")
+        Log.d("asdasdasd", "asdasdasdsad")
+        Log.d("asdasdasd", "asdasdasdsad")
+        Log.d("asdasdasd", "asdasdasdsad")
+        Log.d("asdasdasd", "asdasdasdsad")
+        Log.d("asdasdasd", "asdasdasdsad")
         return try {
             val response = service.getCourses(query = apiQuery, page = page, params.loadSize)
             val itemsCount = response.items.size

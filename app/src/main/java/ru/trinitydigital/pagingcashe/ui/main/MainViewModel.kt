@@ -1,5 +1,6 @@
 package ru.trinitydigital.pagingcashe.ui.main
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.paging.ExperimentalPagingApi
@@ -11,6 +12,7 @@ class MainViewModel(private val repo: PagingRepositories) : ViewModel() {
 
     @ExperimentalPagingApi
     fun getPagingData(): LiveData<PagingData<RowsModel>> {
+        Log.d("asdasdasd", "asdasdasdsad")
         return repo.getPagingResult()
     }
 }
