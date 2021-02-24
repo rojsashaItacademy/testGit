@@ -15,7 +15,7 @@ import ru.trinitydigital.pagingcashe.ui.without_cashe.WithoutCacheViewModel
 
 val viewModelModule: Module = module {
     viewModel { MainViewModel(get()) }
-    viewModel { WithoutCacheViewModel(get()) }
+    viewModel { WithoutCacheViewModel(get(), get()) }
 }
 
 val dbModule: Module = module {

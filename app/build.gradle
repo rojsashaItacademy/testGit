@@ -2,20 +2,38 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
     id 'kotlin-kapt'
+    id 'com.google.gms.google-services'
+    id 'com.google.firebase.crashlytics'
 }
 
 android {
+    signingConfigs {
+        release {
+            storeFile file('../pagingacashe.jks')
+            storePassword '12345678'
+            keyAlias 'pagingCashe'
+            keyPassword '87654321'
+        }
+
+        debug {
+            storeFile file('../pagingacashe.jks')
+            storePassword '12345678'
+            keyAlias 'pagingCashe'
+            keyPassword '87654321'
+        }
+    }
     compileSdkVersion 30
     buildToolsVersion "30.0.2"
 
     defaultConfig {
         applicationId "ru.trinitydigital.pagingcashe"
-        minSdkVersion 21
+        minSdkVersion 23
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        signingConfig signingConfigs.release
     }
 
     buildTypes {
@@ -24,6 +42,18 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    flavorDimensions "version"
+    productFlavors {
+        prod {
+            buildConfigField "String", "BASE_URL", "${prod_base_url}"
+        }
+
+        dev {
+            buildConfigField "String", "BASE_URL", "${dev_base_url}"
+        }
+    }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -68,4 +98,12 @@ dependencies {
     implementation "androidx.room:room-runtime:$room_version"
     implementation "androidx.room:room-ktx:$room_version"
     kapt "androidx.room:room-compiler:$room_version"
+
+    implementation platform('com.google.firebase:firebase-bom:26.4.0')
+    implementation 'com.google.android:flexbox:2.0.1'
+
+    implementation 'com.squareup.picasso:picasso:2.71828'
+
+    implementation 'com.google.firebase:firebase-analytics-ktx'
+    implementation 'com.google.firebase:firebase-crashlytics-ktx'
 }
